@@ -5,7 +5,7 @@ El proyecto se compone a base de Django ver **4.1.2** y python ver **3.10.6**
 
 # Entrega  proyecto intermedio fecha 27/10/2022
 
-Entra-1 Godoy juna manuel Lorenzo peña
+Entra-1 Godoy juna manuel y Lorenzo peña
 
 # Herencias de html
 
