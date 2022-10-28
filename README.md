@@ -7,7 +7,7 @@ El proyecto se compone a base de Django ver **4.1.2** y python ver **3.10.6**
 
 Entra-1 Godoy juna manuel y Lorenzo peña
 
-## Instalación
+# Instalación
 
 - El primer paso es instalar [python] con el siguiente comando:
 
@@ -73,6 +73,7 @@ Se utiliza la herencia
         nombre = models.CharField(max_length=100)
         direccion = models.CharField(max_length=200)
         numero_pasaporte = models.IntegerField()
+        fecha = models.DateField(default=datetime.date.today)
     ```
 - Ubicado en /ejemplo/models.py
 Formulario para insetar datos en las clases "familiar"
