@@ -27,7 +27,7 @@ urlpatterns = [
     path('mostrarnotas/', index_tres), 
     path('imc/<int:altura>/<int:peso>',imc),
     path('mi-familia/', monstrar_familiares),
-    path("blog/", blog_index),
+    path("blog/", include('blog.urls')),
     path('mi-familia/buscar', BuscarFamiliar.as_view()),
     path('mi-familia/alta', AltaFamiliar.as_view()),
     path('alta-nuevo-usuario', AltaUsuario.as_view()),
