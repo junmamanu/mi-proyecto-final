@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-<ul>
-
-{% block buscar %} {% endblock %}
-
-{% for familiar in object_list %}
-<li>
-    {{familiar}}
-    <a href="{% url 'familiar-borrar' familiar.id %}">Borrar</a>
-    <a href="{% url 'familiar-actualizar' familiar.id %}">actualizar</a>
-</li>
-
-{% endfor %}    
-<a href="{% url 'familiar-list'  %}">volver a la lista de familia</a>
-</ul>
+<body> 
+    <h3>Listado de familiares</h3>
+    {% block buscar %} {% endblock %}
+    <table border="1" style='width: 80%;'>
+        <tr>
+            <th>Datos familiar</th>
+            <th>Elminar</th>
+            <th>Actualizar</th>
+        </tr>
+        {% for familiar in object_list %}
+            <tr>
+                <td>{{familiar}}</td> 
+                <td style="text-align: center;"><button><a href="{% url 'familiar-borrar' familiar.id %}">Borrar</a></button></td>
+                <td style="text-align: center;"><button><a href="{% url 'familiar-actualizar' familiar.id %}">actualizar</a></button></td>
+            </tr>
+        {% endfor %}    
+         
+     </table>
+    <br>
+    <button><a href="{% url 'familiar-list'  %}">volver a la lista de familia</a></button>
+    
 
 </body>
 </html>
