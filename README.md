@@ -7,6 +7,45 @@ El proyecto se compone a base de Django ver **4.1.2** y python ver **3.10.6**
 
 Entra-1 Godoy juna manuel y Lorenzo peña
 
+## Instalación
+
+- El primer paso es instalar [python] con el siguiente comando:
+
+```bash
+sudo apt install python
+```
+
+- Se debe utilzar [pip](https://pip.pypa.io/en/stable/) para instalar el framework django:
+
+```bash
+pip install django
+```
+
+- Generar migraciones:
+
+```bash
+python3 manage.py migrate
+```
+
+- Popular la base de datos:
+
+```bash
+python3 manage.py shell < seed_data.py
+```
+
+- Iniciar ejecución local del servidor:
+
+```bash
+python3 manage.py runserver
+```
+
+- Por defecto se inicia en el puerto 8000, pero puede ser cambiado modificando <otro_port> en el comando:
+
+```bash
+python3 manage.py runserver 127.0.0.1:<otro_port>
+```
+
+
 # Herencias de html
 
 Se utiliza la herencia 
@@ -153,22 +192,3 @@ Importamos
     ```
 
 
-
-
-
-- bullet
-* bullet
-
-
-```python
-
-aca va codigo python 
-
-Lorem, ipsum dolor sit amet 
-consectetur adipisicing elit. 
-Commodi maxime iure temporibus? 
-Dolores tempore accusamus amet ea praesentium 
-corporis libero, in iure, 
-cum itaque ex expedita consequuntur adipisci. Libero,
-fugit.
-```
