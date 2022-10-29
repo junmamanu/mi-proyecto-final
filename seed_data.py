@@ -8,3 +8,9 @@ Familiar(nombre="Florencia", fecha=datetime.date(2022, 10, 19),direccion="San Ma
 
 
 print("Se cargo con exito los usuarios de pruebas")
+
+from blog.models import Post
+
+Post(title="Mi post", short_content="un post", content="sadljalsjdlkajsdljasljdlaksjd").save()
+
+print("Se cargo con éxito los post de pruebas")
