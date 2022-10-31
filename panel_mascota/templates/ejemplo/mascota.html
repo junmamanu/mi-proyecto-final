@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h3>Listado de Mascotas</h3>
+    {% block buscar %} {% endblock %}
+    <table border="1" style='width: 80%;'>
+        <tr>
+            <th>Datos Mascota</th>
+            <th>Elminar</th>
+            <th>Actualizar</th>
+        </tr>
+        {% for mascota in object_list %}
+            <tr>
+                <td>{{mascota}}</td> 
+                <td style="text-align: center;"><button><a href="{% url 'mascota-borrar' mascota.id %}">Borrar</a></button></td>
+                <td style="text-align: center;"><button><a href="{% url 'mascota-actualizar' mascota.id %}">actualizar</a></button></td>
+            </tr>
+        {% endfor %}    
+         
+     </table>
+    <br> 
+    
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'ejemplo/base.html' %}
+{% block titulo%} Buscar Mascotas por nombre {% endblock %}
+{% block contenido %}
+
+<form action="/mi-mascota/buscar" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+{% for mascota in lista_mascotas %}
+    <ul>
+        <li> Nombre: {{mascota.nombre}}</li>
+    </ul>
+{% endfor %}
+{% endblock %}

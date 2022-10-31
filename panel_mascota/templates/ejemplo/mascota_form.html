@@ -10,10 +10,10 @@
 
     <form method="post">
         {% csrf_token %}
-        "¿ Estás seguro de borrar el familiar {{ object }} ?"
-        <input type="submit" value="SI">
+        {{form.as_p}}
+        <input type="submit" value="agregar">
     </form>
-    
+
     <a href="{% url 'mascota-buscar'  %}">buscar mascota</a>
 </body>
 </html>

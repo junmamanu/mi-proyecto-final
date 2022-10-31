@@ -1,0 +1,13 @@
+{% extends 'ejemplo/base.html' %}
+
+{% block titulo%} Lista de todas mis Mascotas {% endblock %}
+
+{% block contenido %}
+
+{% for mascota in lista_mascotas %}
+    <ul>
+        <li> Nombre: {{mascota.nombre}}, Raza: {{mascota.raza}}, Edad: {{mascota.edad}}</li>
+    </ul>
+{% endfor %}
+
+{% endblock %}
