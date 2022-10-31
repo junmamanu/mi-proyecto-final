@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from ejemplo.models import Familiar
-from ejemplo.forms import Buscar, FamiliarForm, AltaUsuario
+from ejemplo.models import Familiar, Mascota
+from ejemplo.forms import Buscar, FamiliarForm, AltaUsuario, AltaMascota, buscarMascota
 from django.views import View 
 
 def index(request):
@@ -40,6 +40,10 @@ def imc(request, peso, altura):
 def monstrar_familiares(request):
     lista_familiares = Familiar.objects.all()
     return render(request, "ejemplo/familiares.html", {"lista_familiares": lista_familiares})
+
+def mostrar_mascota(request):
+    lista_mascotas = Mascota.objects.all()
+    return render(request, "ejemplo/mascotas.html", {"lista_mascotas": lista_mascotas})
 
 class BuscarFamiliar(View):
 
@@ -109,3 +113,44 @@ class AltaUsuario(View):
 
 
 
+class AltaMascota(View):
+
+    form_class = AltaMascota
+    template_name = 'ejemplo/alta_mascota.html'
+    initial = {"nombre":"", "raza":"", "edad":""}
+
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form':form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            msg_exito = f"se cargo con éxito una mascota con exito{form.cleaned_data.get('nombre')}"
+            form = self.form_class(initial=self.initial)
+            return render(request, self.template_name, {'form':form, 
+                                                        'msg_exito': msg_exito})
+        
+        return render(request, self.template_name, {"form": form})
+
+class BuscarMascota(View):
+
+    form_class = buscarMascota
+    template_name = 'ejemplo/buscar_mascota.html'
+    initial = {"nombre":""}
+
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form':form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data.get("nombre")
+            lista_mascotas = Mascota.objects.filter(nombre__icontains=nombre).all() 
+            form = self.form_class(initial=self.initial)
+            return render(request, self.template_name, {'form':form, 
+                                                        'lista_mascotas':lista_mascotas})
+
+        return render(request, self.template_name, {"form": form})

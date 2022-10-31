@@ -1,6 +1,6 @@
 from django.urls import path
 
-from panel_familia.views import FamiliarList,FamiliarCrear,FamiliarBorrar
+from panel_familia.views import FamiliarList,FamiliarCrear,FamiliarBorrar 
 
 
 urlpatterns = [
@@ -8,5 +8,4 @@ urlpatterns = [
     path('crear', FamiliarCrear.as_view(), name="familiar-crear"),
     path('<int:pk>/borrar', FamiliarBorrar.as_view(), name= "familiar-borrar"),
     path('<int:pk>/actualizar', FamiliarCrear.as_view(), name="familiar-actualizar"),
-
 ]
