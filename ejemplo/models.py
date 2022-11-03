@@ -19,7 +19,6 @@ class  Mascota(models.Model):
     def __str__(self):
         return f"Nombre: {self.nombre}, Raza:{self.raza}, Id:{self.id}, Fecha:{self.fecha_registro}"
 
-     
 
 class Usuarios(models.Model):
     usuario = models.CharField(max_length = 30)

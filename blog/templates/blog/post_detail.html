@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    {% csrf_token %}
     {{object}}
+    <img height="255" src="{{object.image.url}}"/>
 </body>
 </html>

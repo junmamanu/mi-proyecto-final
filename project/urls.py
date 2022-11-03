@@ -18,6 +18,8 @@ from django.urls import path, include
 from ejemplo.views import (AltaUsuario, 
 index, index_dos , index_tres ,imc, monstrar_familiares , 
 BuscarFamiliar , AltaFamiliar, AltaMascota, BuscarMascota, mostrar_mascota)
+from django.conf import settings
+from django.conf.urls.static import static
 
 from blog.views import index as blog_index
 urlpatterns = [
@@ -35,4 +37,6 @@ urlpatterns = [
     path('mi-mascota/alta', AltaMascota.as_view()),
     path('mi-mascota/buscar', BuscarMascota.as_view()),
     path('mi-mascota/', mostrar_mascota), 
+    
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
