@@ -1,6 +1,13 @@
-
+from django.urls import reverse_lazy
+from django.views import View
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
+from blog.models import Post
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import User
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from blog.models import Configuracion
+from blog.models import Usuarios
+
 
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -50,3 +57,13 @@ class BlogSignUp(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("blog-login")
     template_name = "registration/signup.html"
+
+class ProfileUpdate(UpdateView):
+    model = User
+    fields = ['username']
+    success_url = reverse_lazy("blog-login")
+
+class register(CreateView):
+    model = Usuarios
+    success_url = "/blog/index"
+    fields = ["usuario","contraseña","nombre_apellido", "email"]
