@@ -1,11 +1,11 @@
 # Proyecto final Coder house
-Proyecto final desarrollado en conjuto por Juan Manuel Godoy Gandaria y Lorenzo Peña
+Proyecto final desarrollado en conjuto por Juan Manuel Godoy Gandaria, Lorenzo Peña y Leandro Moll
 
 El proyecto se compone a base de Django ver **4.1.2** y python ver **3.10.6**
 
 # Entrega  proyecto intermedio fecha 27/10/2022
 
-Entra-1 Godoy juna manuel y Lorenzo peña
+Entra-1 Godoy Juan Manuel, Lorenzo Peña y Leandro Moll
 
 # Instalación
 
