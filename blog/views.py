@@ -7,9 +7,8 @@ from django.contrib.auth.admin import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from blog.models import Usuarios
-
-
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 @login_required
@@ -25,7 +24,7 @@ class BlogLogout(LogoutView):
     template_name = 'blog/blog_logout.html'
 
 
-class ListPost(ListView):
+class ListPost(LoginRequiredMixin, ListView):
     model=Post
 
 class CreatePost(CreateView):
@@ -52,6 +51,8 @@ class SearchPostByName(ListView):
         blog_title = self.request.GET.get('post-title')
         return Post.objects.filter(title__icontains=blog_title)
 
+class BlogLogout(LogoutView):
+    template_name = 'blog/blog_logout.html'
 
 class BlogSignUp(CreateView):
     form_class = UserCreationForm
@@ -60,7 +61,7 @@ class BlogSignUp(CreateView):
 
 class ProfileUpdate(UpdateView):
     model = User
-    fields = ['username']
+    fields =  fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy("blog-login")
 
 class register(CreateView):
