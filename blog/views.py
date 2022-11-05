@@ -13,12 +13,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 @login_required
 def index(request):
-    return render(request, 'blog/index.html')
+    posts = Post.objects.order_by('-date_published').all()
+    return render(request, 'blog/index.html', {"posts": posts})
 
 
 class BlogLogin(LoginView):
     template_name = 'blog/blog_login.html'
-    next_page = reverse_lazy("list-post")
+    next_page = reverse_lazy("index-blog")
 
 class BlogLogout(LogoutView):
     template_name = 'blog/blog_logout.html'

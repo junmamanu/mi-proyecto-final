@@ -23,19 +23,20 @@
                     <li class="nav-item"><a class="nav-link" href={% url 'index-blog' %}>Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                     <li class="nav-item"><a class="nav-link" href={% url 'registrar-usuario' %}>registrar</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href={% url 'blog-login' %}>Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href={% url 'blog-logout' %}>Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-<!-- Responsive navbar-->
 {% endblock %}
 
-{% block header %}<header class="py-5 bg-light border-bottom mb-4">
+{% block header %}
+<header class="py-5 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
-            <h1 class="fw-bolder">{{configuracion.titulo_principal}}</h1>
-            <p class="lead mb-0">{{configuracion.subtitulo_principal}}</p>
+            <h1 class="fw-bolder">Titulo del Blog</h1>
+            <p class="lead mb-0">Sub Titulo</p>
         </div>
     </div>
 </header>
