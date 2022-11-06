@@ -11,7 +11,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-@login_required
 def index(request):
     posts = Post.objects.order_by('-date_published').all()
     return render(request, 'blog/index.html', {"posts": posts})
@@ -25,10 +24,10 @@ class BlogLogout(LogoutView):
     template_name = 'blog/blog_logout.html'
 
 
-class ListPost(LoginRequiredMixin, ListView):
+class ListPost(ListView):
     model=Post
 
-class CreatePost(CreateView):
+class CreatePost(CreateView,LoginRequiredMixin):
     model=Post
     fields = ['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
@@ -37,12 +36,12 @@ class CreatePost(CreateView):
 class DetailPost(DetailView):
     model=Post
 
-class UpdatePost(UpdateView):
+class UpdatePost(LoginRequiredMixin,UpdateView):
     model=Post
     fields=['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
 
-class DeletePost(DeleteView):
+class DeletePost(DeleteView,LoginRequiredMixin):
     model=Post
     success_url = reverse_lazy("list-post")
 
@@ -60,7 +59,7 @@ class BlogSignUp(CreateView):
     success_url = reverse_lazy("blog-login")
     template_name = "registration/signup.html"
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(UpdateView,LoginRequiredMixin):
     model = User
     fields =  fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy("blog-login")

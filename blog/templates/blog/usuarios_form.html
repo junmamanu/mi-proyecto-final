@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {%load static %}
-{% block contenido %}
+    {% block contenido %}
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}

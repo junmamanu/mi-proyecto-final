@@ -24,6 +24,5 @@ class Usuarios(models.Model):
     usuario = models.CharField(max_length = 30)
     contraseña = models.CharField(max_length = 30)
     nombre_apellido = models.CharField(max_length = 50)
-    
 
 
