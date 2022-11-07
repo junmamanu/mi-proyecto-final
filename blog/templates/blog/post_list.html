@@ -8,7 +8,9 @@
     {% else %}
         <a href="{% url 'blog-login' %}"> Ingresar</a>
     {% endif %}
-
+    <div class="card mb-4">
+        <div class="card-header">Post List</div>
+        <div class="card-body">
     <table class="table">
         <tr>
             <th>Title</th>
@@ -32,6 +34,20 @@
             </tr>
         {% endfor %}
     </table>    
-</div>  
+</div>
+    <!-- Search widget-->
+    <div class="card mb-4">
+        <div class="card-header">Search</div>
+        <div class="card-body">
+            <form action="{% url 'search-by-name-post' %}" method="get">
+                {% csrf_token %}
+                <input type="search" name="post-title">
+                <input type="submit" value="go">
+            </form>
+        </div>
+    </div>
+    
+
+
 
 {% endblock %}
