@@ -6,7 +6,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from blog.models import Usuarios
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -16,15 +15,6 @@ def index(request):
     posts = Post.objects.order_by('-date_published').all()
     return render(request, 'blog/index.html', {"posts": posts})
 
-
-class BlogLogin(LoginView):
-    template_name = 'blog/blog_login.html'
-    next_page = reverse_lazy("index-blog")
-
-class BlogLogout(LogoutView):
-    template_name = 'blog/blog_logout.html'
-
-
 class ListPost(LoginRequiredMixin, ListView):
     model=Post
 
@@ -33,7 +23,6 @@ class CreatePost(CreateView):
     fields = ['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
     
-
 class DetailPost(DetailView):
     model=Post
 
@@ -52,6 +41,11 @@ class SearchPostByName(ListView):
         blog_title = self.request.GET.get('post-title')
         return Post.objects.filter(title__icontains=blog_title)
 
+
+class BlogLogin(LoginView):
+    template_name = 'blog/blog_login.html'
+    next_page = reverse_lazy("index-blog")
+
 class BlogLogout(LogoutView):
     template_name = 'blog/blog_logout.html'
 
@@ -64,8 +58,3 @@ class ProfileUpdate(UpdateView):
     model = User
     fields =  fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy("blog-login")
-
-class register(CreateView):
-    model = Usuarios
-    success_url = "/blog/index"
-    fields = ["usuario","contraseña","nombre_apellido", "email"]
