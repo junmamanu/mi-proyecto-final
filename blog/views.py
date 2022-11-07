@@ -14,16 +14,7 @@ def index(request):
     posts = Post.objects.order_by('-date_published').all()
     return render(request, 'blog/index.html', {"posts": posts})
 
-
-class BlogLogin(LoginView):
-    template_name = 'blog/blog_login.html'
-    next_page = reverse_lazy("index-blog")
-
-class BlogLogout(LogoutView):
-    template_name = 'blog/blog_logout.html'
-
-
-class ListPost(LoginRequiredMixin, ListView):
+class ListPost(ListView):
     model=Post
 
 class CreatePost(CreateView,LoginRequiredMixin):
