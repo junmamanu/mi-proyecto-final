@@ -10,3 +10,12 @@ class Post(models.Model):
     def __str__(self):
         return f"id:{self.id}, title:{self.title}"
 
+
+class title(models.Model):
+    blog_title = models.CharField(max_length= 20)
+    blog_subtitle = models.CharField(max_length= 20)
+
+    def __str__(self):
+        return f"blog_title:{self.blog_title}"
+
+

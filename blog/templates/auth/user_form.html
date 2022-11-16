@@ -1,8 +1,14 @@
 {% extends 'blog/base.html' %}
 {% block contenido %}
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="guardar">
-</form>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" class="card card-card-body">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</main>
 {% endblock %}

@@ -1,8 +1,15 @@
 {% extends 'blog/base.html' %}
 {% block contenido %}
 
-
-<h1>Logout del Blog</h1>
-<a href="{% url 'index-blog' %}">ir al index</a>
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+        <form method="post" class="card card-body">
+            <h1>Logout del Blog</h1>
+        </form> 
+        <a href="{% url 'index-blog' %}"> Home </a>
+        </div>
+    </div>
+</main>
 
 {% endblock %}

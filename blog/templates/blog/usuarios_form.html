@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
 {%load static %}
+
     {% block contenido %}
-    <form method="post">
+    <form method="post" class="card card-body">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="agregar">

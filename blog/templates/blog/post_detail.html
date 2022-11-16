@@ -1,7 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block contenido %}
 
-
     {% csrf_token %}
     {{object}}
     <img height="255" src="{{object.image.url}}"/>
