@@ -66,10 +66,7 @@ Indicamos la password o contraseña:
 ```bash
 Password: 
 ```
-Indicamos la password:
-```bash
-Password: 
-```
+
 repetimos la password:
 ```bash
 Password (again): 
@@ -78,7 +75,7 @@ Superuser created successfully.
 ```
 
 # Ingresamos por primera vez a nuestra app
-Al ingresar por primera vez a la web utilizando el link 127.0.0.1/admin/
+Al ingresar por primera vez a la web utilizando el link **127.0.0.1/admin/**
 
 Loguearnos y realizar la carga de el título y el about del mismo. 
 
