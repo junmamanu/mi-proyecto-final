@@ -86,11 +86,15 @@ Una vez realizado eso la web se encuentra lista para poder ser usada
 
 # Primeros pasos
 
-La web nos permite realizar carga de posteos con una descripción breve de unos 255 caracteres y una segunda descripción de hasta 3000 caracteres
+La web nos permite realizar carga de posteos con titulo de hasta 100 caracteres,  una descripción breve de unos 255 caracteres y una segunda descripción de hasta 3000 caracteres
 
 
 Contiene las funcionalidades de crear/modificar y editar post,
 Creación de usuarios y edición del mismo
+
+# A disfutrar del Blog !!!
+
+
 
 
 
