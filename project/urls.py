@@ -15,28 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ejemplo.views import (AltaUsuario, 
-index, index_dos , index_tres ,imc, monstrar_familiares , 
-BuscarFamiliar , AltaFamiliar, AltaMascota, BuscarMascota, mostrar_mascota)
+#from ejemplo.views import (AltaUsuario, 
+#index, index_dos , index_tres ,imc, monstrar_familiares , 
+#BuscarFamiliar , AltaFamiliar, AltaMascota, BuscarMascota, mostrar_mascota)
 from django.conf import settings
 from django.conf.urls.static import static
 
 from blog.views import index as blog_index
 urlpatterns = [
+    path('', include('blog.urls')),
     path('admin/', admin.site.urls),
-    path('saludar/', index),
-    path('saludar/<nombre>/<apellido>/', index_dos),
-    path('mostrarnotas/', index_tres), 
-    path('imc/<int:altura>/<int:peso>',imc),
-    path('mi-familia/', monstrar_familiares),
-    path('blog/', include('blog.urls')),
-    path('mi-familia/buscar', BuscarFamiliar.as_view()),
-    path('mi-familia/alta', AltaFamiliar.as_view()),
-    path('alta-nuevo-usuario', AltaUsuario.as_view()),
-    path('panel-familia/', include('panel_familia.urls')),
-    path('mi-mascota/alta', AltaMascota.as_view()),
-    path('mi-mascota/buscar', BuscarMascota.as_view()),
-    path('mi-mascota/', mostrar_mascota), 
+    #path('saludar/', index),
+    #path('saludar/<nombre>/<apellido>/', index_dos),
+    #path('mostrarnotas/', index_tres), 
+    #path('imc/<int:altura>/<int:peso>',imc),
+    #path('mi-familia/', monstrar_familiares),
+    #path('mi-familia/buscar', BuscarFamiliar.as_view()),
+    #path('mi-familia/alta', AltaFamiliar.as_view()),
+    #path('alta-nuevo-usuario', AltaUsuario.as_view()),
+    #path('panel-familia/', include('panel_familia.urls')),
+    #path('mi-mascota/alta', AltaMascota.as_view()),
+    #path('mi-mascota/buscar', BuscarMascota.as_view()),
+    #path('mi-mascota/', mostrar_mascota), 
     
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

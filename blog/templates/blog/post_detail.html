@@ -2,8 +2,14 @@
 {% block contenido %}
 
     {% csrf_token %}
-    {{object}}
-    <img height="255" src="{{object.image.url}}"/>
-
-
+<body>
+    <div class="sticky-top">
+        <div class="card mb-4">
+            <div class="card-header">{{post.title}}</div>
+            <div class="card-body">{{post.content}}</div>
+            <img src="{{object.image.url}}" class="rounded mx-auto d-block" alt="..." width="800" height="600" >
+            <div class="small text-muted">{{post.date_published}}</div>
+        </div>
+    </div>
+</body>
     {% endblock %}
